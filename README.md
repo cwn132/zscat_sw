@@ -1,4 +1,6 @@
 springboot dubbo redis solr mq kafka 商城 blog cms
+1. 关注公众号，获取更多资料
+![输入图片说明](https://images.gitee.com/uploads/images/2018/0923/103148_bad00eaa_134431.jpeg "qrcode_for_gh_ad5fa85786aa_344.jpg")
  
 
 ### qq群 171826977
