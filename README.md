@@ -101,3 +101,5 @@ https://gitee.com/jmdhappy/xxpay-master 支付
 
 ![输入图片说明](https://git.oschina.net/uploads/images/2017/0829/203712_6694b4c1_134431.jpeg "weixin.jpg")
 ![输入图片说明](https://git.oschina.net/uploads/images/2017/0829/203723_5567bd56_134431.jpeg "alipay.jpg")
+关注公众号 ，有更多的资料
+![输入图片说明](https://images.gitee.com/uploads/images/2018/0923/103015_3df65a8a_134431.jpeg "qrcode_for_gh_ad5fa85786aa_344.jpg")
