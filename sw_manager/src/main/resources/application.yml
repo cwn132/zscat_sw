@@ -15,7 +15,7 @@ guns:
 
 ###################  项目启动端口  ###################
 server:
-  port: 80
+  port: 8070
 
 ###################  beetl配置  ###################
 beetl:
@@ -80,17 +80,17 @@ mybatis-plus:
 spring:
   profiles: dev
   datasource:
-      url: jdbc:mysql://127.0.0.1:3306/weixin?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
+      url: jdbc:mysql://127.0.0.1:3306/zscat-me?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
       username: root
-      password: root
+      password: root@123
       filters: log4j,wall,mergeStat
 
 #多数据源
 biz:
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/weixin?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
+    url: jdbc:mysql://127.0.0.1:3306/zscat-me?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
     username: root
-    password: root
+    password: root@123
 
 logging:
   level.root: info
@@ -106,9 +106,9 @@ logging:
 spring:
   profiles: produce
   datasource:
-      url: jdbc:mysql://127.0.0.1:3306/weixin?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
+      url: jdbc:mysql://127.0.0.1:3306/zscat-me?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
       username: root
-      password: root
+      password: root@123
       filters: log4j,wall,mergeStat
 
 logging:

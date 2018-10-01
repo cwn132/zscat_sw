@@ -1,15 +1,15 @@
 package com.zsCat.common.utils;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
 import redis.clients.jedis.BinaryClient.LIST_POSITION;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 import redis.clients.jedis.exceptions.JedisConnectionException;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * <p>redis通用工具类</p>
@@ -62,8 +62,8 @@ public class RedisUtils {
   //    config.setMaxWait(1000 * 100);
       // 在borrow一个jedis实例时，是否提前进行validate操作；如果为true，则得到的jedis实例均是可用的；
       config.setTestOnBorrow(true);
-       pool = new JedisPool(config, "127.0.0.1", 6379, 100000);
-     // pool = new JedisPool(config, RedisProperty.getIp(), RedisProperty.getPort(), 100000);
+     //  pool = new JedisPool(config, "127.0.0.1", 6379, 100000);
+      pool = new JedisPool(config, "172.31.100.164", 6379, 100000);
     }
   }
 

@@ -1,38 +1,23 @@
 package com.zscat.shop.wap;
 
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
 import com.alibaba.dubbo.config.annotation.Reference;
-import com.zsCat.common.utils.AddressUtils;
-import com.zsCat.common.utils.IPUtils;
+import com.github.pagehelper.PageInfo;
 import com.zsCat.common.utils.JSONSerializerUtil;
 import com.zsCat.common.utils.RedisUtils;
-import com.zscat.util.MemberUtils;
+import com.zscat.shop.model.*;
+import com.zscat.shop.service.*;
+import com.zscat.util.PasswordEncoder;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.github.pagehelper.PageInfo;
-import com.zscat.shop.model.Floor;
-import com.zscat.shop.model.Member;
-import com.zscat.shop.model.Product;
-import com.zscat.shop.model.ProductClass;
-import com.zscat.shop.model.ProductType;
-import com.zscat.shop.service.FloorService;
-import com.zscat.shop.service.MemberService;
-import com.zscat.shop.service.ProductClassService;
-import com.zscat.shop.service.ProductService;
-import com.zscat.shop.service.ProductTypeService;
-import com.zscat.util.PasswordEncoder;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
 	 * 
@@ -75,11 +60,9 @@ public class Wap1IndexController extends BaseController{
 		        model.addObject("useList", useList);
 //				model.addObject("city", AddressUtils.getCityByIp(CustomSystemUtil.INTERNET_IP));
 //				model.addObject("city1", AddressUtils.getCityByIp(CustomSystemUtil.INTRANET_IP));
-				if (MemberUtils.getSessionLoginUser()!=null){
-					model.addObject("city", MemberUtils.getSessionLoginUser().getUsername());
-				}else{
+
 					model.addObject("city", "未登录");
-				}
+
 
 
 			//	model.addObject("city", AddressUtils.getCityByIp(IPUtils.getIp2(req)));
