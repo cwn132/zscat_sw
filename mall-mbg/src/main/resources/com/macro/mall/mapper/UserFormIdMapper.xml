@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.macro.mall.mapper.UserFormIdDao">
+	<resultMap id="orderMap" type="com.macro.mall.model.UserFormId">
+		<result column="id" property="id" jdbcType="BIGINT" />
+		<result column="user_id" property="userId" jdbcType="BIGINT" />
+		<result column="form_id" property="formId" jdbcType="VARCHAR" />
+		<result column="source" property="source" jdbcType="INTEGER" />
+		<result column="status" property="status" jdbcType="INTEGER" />
+		<result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+		<result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+	</resultMap>
+
+	<insert id="insert">
+		INSERT INTO tb_user_from_id(user_id, form_id, source, status, create_time, update_time)
+		VALUES (#{userId}, #{formId}, #{source}, #{status}, now(), now())
+	</insert>
+
+	<select id="exists" resultType="java.lang.Integer">
+		select count(id) from tb_user_from_id WHERE form_id=#{formId}
+	</select>
+</mapper>

@@ -1,0 +1,9 @@
+1.在后台用户表 商品表 订单表添加 添加供应商编号，达到后台商户入驻，商户只可以查询自己的商品和订单
+2.修复mall-front-vue登录和注册 搜索 登录已修复
+3.小程序添加记录formid接口，下单成功添加消息推送功能
+
+-- 具体介绍
+https://gitee.com/zscat-platform/mall/wikis/pages
+二。后端代码 分支supp
+https://gitee.com/zscat-platform/mall
+三.下载项目下最新的sql

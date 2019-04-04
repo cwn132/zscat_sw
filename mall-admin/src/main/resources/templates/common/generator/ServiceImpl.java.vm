@@ -1,0 +1,59 @@
+package ${package}.${module}.service.impl;
+
+import com.github.pagehelper.PageHelper;
+
+import ${package}.${module}.mapper.${className}Mapper;
+
+import ${package}.${module}.model.${Module}${className};
+
+
+import ${package}.${module}.service.${className}Service;
+import org.springframework.beans.BeanUtils;
+import javax.annotation.Resource;
+import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
+
+import java.util.List;
+
+/**
+ * 商品品牌Service实现类
+ * Created by macro on 2018/4/26.
+ */
+@Service
+public class ${className}ServiceImpl implements ${className}Service {
+    @Resource
+    private ${className}Mapper ${classname}Mapper;
+    
+
+
+    @Override
+    public int create${className}(${Module}${className} ${classname}) {
+        return ${classname}Mapper.save(${classname});
+    }
+
+    @Override
+    public int update${className}(Long id, ${Module}${className} ${classname}) {
+        ${classname}.setId(id);
+        return ${classname}Mapper.update(${classname});
+    }
+
+    @Override
+    public int delete${className}(Long id) {
+        return ${classname}Mapper.remove(id);
+    }
+
+
+    @Override
+    public List<${Module}${className}> list${className}(${Module}${className} ${classname}, int pageNum, int pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
+        return ${classname}Mapper.list(new ${Module}${className}());
+
+    }
+
+    @Override
+    public ${Module}${className} get${className}(Long id) {
+        return ${classname}Mapper.get(id);
+    }
+
+   
+}

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.macro.mall.mapper.AreaMapper">
+
+	<select id="get" resultType="com.macro.mall.model.Area">
+		select `id`,`pid`,`deep`,`name`,`pinyin_prefix`,`pinyin`,`ext_id`,`ext_name` from t_area where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.macro.mall.model.Area">
+		select `id`,`pid`,`deep`,`name`,`pinyin_prefix` pinyinPrefix,`pinyin`,`ext_id` extId,`ext_name` extName from t_area
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="pid != null and pid != ''"> and pid = #{pid} </if>
+		  		  <if test="deep != null and deep != ''"> and deep = #{deep} </if>
+		  		  <if test="name != null and name != ''"> and name = #{name} </if>
+		  		  <if test="pinyinPrefix != null and pinyinPrefix != ''"> and pinyin_prefix = #{pinyinPrefix} </if>
+		  		  <if test="pinyin != null and pinyin != ''"> and pinyin = #{pinyin} </if>
+		  		  <if test="extId != null and extId != ''"> and ext_id = #{extId} </if>
+		  		  <if test="extName != null and extName != ''"> and ext_name = #{extName} </if>
+		  		</where>
+
+	</select>
+
+	 
+	<insert id="save" parameterType="com.macro.mall.model.Area">
+		insert into t_area
+		(
+			`id`, 
+			`pid`, 
+			`deep`, 
+			`name`, 
+			`pinyin_prefix`, 
+			`pinyin`, 
+			`ext_id`, 
+			`ext_name`
+		)
+		values
+		(
+			#{id}, 
+			#{pid}, 
+			#{deep}, 
+			#{name}, 
+			#{pinyinPrefix}, 
+			#{pinyin}, 
+			#{extId}, 
+			#{extName}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.macro.mall.model.Area">
+		update t_area 
+		<set>
+			<if test="pid != null">`pid` = #{pid}, </if>
+			<if test="deep != null">`deep` = #{deep}, </if>
+			<if test="name != null">`name` = #{name}, </if>
+			<if test="pinyinPrefix != null">`pinyin_prefix` = #{pinyinPrefix}, </if>
+			<if test="pinyin != null">`pinyin` = #{pinyin}, </if>
+			<if test="extId != null">`ext_id` = #{extId}, </if>
+			<if test="extName != null">`ext_name` = #{extName}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from t_area where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from t_area where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

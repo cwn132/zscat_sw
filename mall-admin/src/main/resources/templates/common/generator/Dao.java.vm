@@ -1,0 +1,29 @@
+package ${package}.${module}.mapper;
+
+import ${package}.${module}.model.${Module}${className};
+
+import java.util.List;
+import java.util.Map;
+
+
+/**
+ * ${comments}
+ * @author ${author}
+ * @email ${email}
+ * @date ${datetime}
+ */
+
+public interface ${className}Mapper {
+
+	${Module}${className} get(Long id);
+	
+	List<${Module}${className}> list(${Module}${className} ${classname});
+	
+	int save(${Module}${className} ${classname});
+	
+	int update(${Module}${className} ${classname});
+	
+	int remove(Long id);
+	
+	int batchRemove(${pk.attrType}[] ${pk.attrname}s);
+}

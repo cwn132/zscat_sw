@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.macro.mall.mapper.ExpressInfoDao" >
+  <resultMap id="BaseResultMap" type="com.macro.mall.model.ExpressInfo" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="EXPRESS_CORP_ID" property="expressCorpId" jdbcType="VARCHAR" />
+    <result column="EXPRESS_NO" property="expressNo" jdbcType="VARCHAR" />
+    <result column="EXPRESS_STATUS" property="expressStatus" jdbcType="TINYINT" />
+    <result column="EXPRESS_DETAIL" property="expressDetail" jdbcType="VARCHAR" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  
+  <resultMap id="expressInfoViewMap" extends="BaseResultMap" type="com.macro.mall.dto.ExpressInfoView">
+  	<result column="EXPRESS_CORP_NAME" property="expressCorpName" jdbcType="VARCHAR" />
+  </resultMap>
+
+    <select id="selectNotRecievedInfo" resultMap="BaseResultMap">
+        SELECT e.ID, e.EXPRESS_CORP_ID, e.EXPRESS_NO, e.EXPRESS_STATUS, e.EXPRESS_DETAIL, e.UPDATE_TIME
+        FROM TB_EXPRESS_INFO e ,oms_order o
+        WHERE e.EXPRESS_NO = o.delivery_sn
+        AND o.create_time &gt;= DATE_ADD(NOW(), INTERVAL -30 DAY)
+        AND o.create_time &lt;= DATE_ADD(NOW(), INTERVAL -1 DAY)
+        AND e.EXPRESS_STATUS != 2 AND e.EXPRESS_NO IS NOT NULL
+        ORDER BY e.UPDATE_TIME
+    </select>
+
+    <select id="selectNeedInitRecievedInfo" resultMap="BaseResultMap">
+        select <include refid="Base_Column_List" />
+        from TB_EXPRESS_INFO
+        where EXPRESS_STATUS = 0 and UPDATE_TIME>#{startTime}
+        order by UPDATE_TIME
+    </select>
+    <select id="selectByPrimaryKeyByLock" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+        select
+        <include refid="Base_Column_List" />
+        from TB_EXPRESS_INFO
+        where ID = #{id}
+        <if test="isLock == true">for update</if>
+    </select>
+  <sql id="Base_Column_List" >
+    ID, EXPRESS_CORP_ID, EXPRESS_NO, EXPRESS_STATUS, EXPRESS_DETAIL, UPDATE_TIME
+  </sql>
+  
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+   	 <include refid="Base_Column_List" />
+   from TB_EXPRESS_INFO
+   where ID = #{id,jdbcType=INTEGER}
+  </select>
+  
+  <select id="selectByExpNo" resultMap="BaseResultMap" >
+  	select 
+   	 <include refid="Base_Column_List" />
+    from TB_EXPRESS_INFO
+    where EXPRESS_NO = #{expressNo}
+  </select>
+  
+  <select id="queryExpressInfoViewByNo" resultMap="expressInfoViewMap">
+  	select e.ID,e.EXPRESS_CORP_ID,e.EXPRESS_NO,e.EXPRESS_STATUS,e.EXPRESS_DETAIL,e.UPDATE_TIME,c.EXPRESS_CORP_NAME
+  	from TB_EXPRESS_INFO e left join TB_EXPRESS_COMPANY c on e.EXPRESS_CORP_ID=c.EXPRESS_CORP_ID
+  	where e.EXPRESS_NO=#{expressNo}
+  </select>
+  
+   <select id="queryExpressInfoViewById" resultMap="expressInfoViewMap">
+  	select e.ID,e.EXPRESS_CORP_ID,e.EXPRESS_NO,e.EXPRESS_STATUS,e.EXPRESS_DETAIL,e.UPDATE_TIME,c.EXPRESS_CORP_NAME
+  	from TB_EXPRESS_INFO e left join TB_EXPRESS_COMPANY c on e.EXPRESS_CORP_ID=c.EXPRESS_CORP_ID
+  	where e.ID=#{id}
+  </select>
+  
+  <insert id="insert"	parameterType="com.macro.mall.model.ImportOrderItem">
+  	insert into  TB_EXPRESS_INFO (EXPRESS_CORP_ID, EXPRESS_NO, EXPRESS_STATUS,UPDATE_TIME)
+  	values (#{expressCorpId,jdbcType=VARCHAR},#{expressNo,jdbcType=VARCHAR},0,now())
+	<selectKey keyProperty="expressId" resultType="java.lang.Long" order="AFTER">
+      select LAST_INSERT_ID()
+    </selectKey>
+  </insert>
+
+    <update id="updateByPrimaryKey" parameterType="com.macro.mall.model.ExpressInfo" >
+        update TB_EXPRESS_INFO
+        set EXPRESS_CORP_ID = #{expressCorpId,jdbcType=VARCHAR},
+        EXPRESS_NO = #{expressNo,jdbcType=VARCHAR},
+        EXPRESS_STATUS = #{expressStatus,jdbcType=TINYINT},
+        EXPRESS_DETAIL = #{expressDetail,jdbcType=VARCHAR},
+        UPDATE_TIME = now()
+        where ID = #{id}
+    </update>
+
+  <update id="updateById" parameterType="com.macro.mall.model.ImportOrderItem">
+  	update TB_EXPRESS_INFO 
+  	set    EXPRESS_CORP_ID=#{expressCorpId,jdbcType=VARCHAR},
+  		   EXPRESS_NO=#{expressNo,jdbcType=VARCHAR},
+  		   EXPRESS_STATUS=0,
+  		   UPDATE_TIME=now()
+  	where  ID=#{expressId,jdbcType=INTEGER}
+  </update>
+  
+</mapper>

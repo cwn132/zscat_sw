@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.macro.mall.mapper.PmsProductConsultMapper">
+  <resultMap id="BaseResultMap" type="com.macro.mall.model.PmsProductConsult">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="goods_id" jdbcType="BIGINT" property="goodsId" />
+    <result column="goods_name" jdbcType="VARCHAR" property="goodsName" />
+    <result column="member_id" jdbcType="BIGINT" property="memberId" />
+    <result column="member_name" jdbcType="VARCHAR" property="memberName" />
+    <result column="store_id" jdbcType="BIGINT" property="storeId" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="consult_content" jdbcType="VARCHAR" property="consultContent" />
+    <result column="consult_addtime" jdbcType="TIMESTAMP" property="consultAddtime" />
+    <result column="consult_reply" jdbcType="VARCHAR" property="consultReply" />
+    <result column="consult_reply_time" jdbcType="TIMESTAMP" property="consultReplyTime" />
+    <result column="isanonymous" jdbcType="BIT" property="isanonymous" />
+    <result column="is_del" jdbcType="BIT" property="isDel" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, goods_id, goods_name, member_id, member_name, store_id, email, consult_content, 
+    consult_addtime, consult_reply, consult_reply_time, isanonymous, is_del
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from pms_product_consult
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="list"  resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from pms_product_consult
+    <where>
+       is_del=0
+      <if test="goodsId != null">
+        and goods_id = #{goodsId,jdbcType=BIGINT}
+      </if>
+      <if test="goodsName != null">
+        and goods_name = #{goodsName,jdbcType=VARCHAR}
+      </if>
+      <if test="memberId != null">
+        and member_id = #{memberId,jdbcType=BIGINT}
+      </if>
+      <if test="memberName != null">
+        and  member_name = #{memberName,jdbcType=VARCHAR}
+      </if>
+      <if test="storeId != null">
+        and store_id = #{storeId,jdbcType=BIGINT}
+      </if>
+      <if test="email != null">
+        and  email = #{email,jdbcType=VARCHAR}
+      </if>
+      <if test="consultContent != null">
+        and consult_content = #{consultContent,jdbcType=VARCHAR}
+      </if>
+      <if test="consultAddtime != null">
+        and consult_addtime = #{consultAddtime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="consultReply != null">
+        and  consult_reply = #{consultReply,jdbcType=VARCHAR}
+      </if>
+    </where>
+
+
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from pms_product_consult
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.macro.mall.model.PmsProductConsult">
+    insert into pms_product_consult (id, goods_id, goods_name, 
+      member_id, member_name, store_id, 
+      email, consult_content, consult_addtime, 
+      consult_reply, consult_reply_time, isanonymous, 
+      is_del)
+    values (#{id,jdbcType=BIGINT}, #{goodsId,jdbcType=BIGINT}, #{goodsName,jdbcType=VARCHAR}, 
+      #{memberId,jdbcType=BIGINT}, #{memberName,jdbcType=VARCHAR}, #{storeId,jdbcType=BIGINT}, 
+      #{email,jdbcType=VARCHAR}, #{consultContent,jdbcType=VARCHAR}, #{consultAddtime,jdbcType=TIMESTAMP}, 
+      #{consultReply,jdbcType=VARCHAR}, #{consultReplyTime,jdbcType=TIMESTAMP}, #{isanonymous,jdbcType=BIT}, 
+      #{isDel,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.macro.mall.model.PmsProductConsult">
+    insert into pms_product_consult
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="goodsId != null">
+        goods_id,
+      </if>
+      <if test="goodsName != null">
+        goods_name,
+      </if>
+      <if test="memberId != null">
+        member_id,
+      </if>
+      <if test="memberName != null">
+        member_name,
+      </if>
+      <if test="storeId != null">
+        store_id,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="consultContent != null">
+        consult_content,
+      </if>
+      <if test="consultAddtime != null">
+        consult_addtime,
+      </if>
+      <if test="consultReply != null">
+        consult_reply,
+      </if>
+      <if test="consultReplyTime != null">
+        consult_reply_time,
+      </if>
+      <if test="isanonymous != null">
+        isanonymous,
+      </if>
+      <if test="isDel != null">
+        is_del,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="goodsId != null">
+        #{goodsId,jdbcType=BIGINT},
+      </if>
+      <if test="goodsName != null">
+        #{goodsName,jdbcType=VARCHAR},
+      </if>
+      <if test="memberId != null">
+        #{memberId,jdbcType=BIGINT},
+      </if>
+      <if test="memberName != null">
+        #{memberName,jdbcType=VARCHAR},
+      </if>
+      <if test="storeId != null">
+        #{storeId,jdbcType=BIGINT},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="consultContent != null">
+        #{consultContent,jdbcType=VARCHAR},
+      </if>
+      <if test="consultAddtime != null">
+        #{consultAddtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="consultReply != null">
+        #{consultReply,jdbcType=VARCHAR},
+      </if>
+      <if test="consultReplyTime != null">
+        #{consultReplyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isanonymous != null">
+        #{isanonymous,jdbcType=BIT},
+      </if>
+      <if test="isDel != null">
+        #{isDel,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.macro.mall.model.PmsProductConsult">
+    update pms_product_consult
+    <set>
+      <if test="goodsId != null">
+        goods_id = #{goodsId,jdbcType=BIGINT},
+      </if>
+      <if test="goodsName != null">
+        goods_name = #{goodsName,jdbcType=VARCHAR},
+      </if>
+      <if test="memberId != null">
+        member_id = #{memberId,jdbcType=BIGINT},
+      </if>
+      <if test="memberName != null">
+        member_name = #{memberName,jdbcType=VARCHAR},
+      </if>
+      <if test="storeId != null">
+        store_id = #{storeId,jdbcType=BIGINT},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="consultContent != null">
+        consult_content = #{consultContent,jdbcType=VARCHAR},
+      </if>
+      <if test="consultAddtime != null">
+        consult_addtime = #{consultAddtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="consultReply != null">
+        consult_reply = #{consultReply,jdbcType=VARCHAR},
+      </if>
+      <if test="consultReplyTime != null">
+        consult_reply_time = #{consultReplyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isanonymous != null">
+        isanonymous = #{isanonymous,jdbcType=BIT},
+      </if>
+      <if test="isDel != null">
+        is_del = #{isDel,jdbcType=BIT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.macro.mall.model.PmsProductConsult">
+    update pms_product_consult
+    set goods_id = #{goodsId,jdbcType=BIGINT},
+      goods_name = #{goodsName,jdbcType=VARCHAR},
+      member_id = #{memberId,jdbcType=BIGINT},
+      member_name = #{memberName,jdbcType=VARCHAR},
+      store_id = #{storeId,jdbcType=BIGINT},
+      email = #{email,jdbcType=VARCHAR},
+      consult_content = #{consultContent,jdbcType=VARCHAR},
+      consult_addtime = #{consultAddtime,jdbcType=TIMESTAMP},
+      consult_reply = #{consultReply,jdbcType=VARCHAR},
+      consult_reply_time = #{consultReplyTime,jdbcType=TIMESTAMP},
+      isanonymous = #{isanonymous,jdbcType=BIT},
+      is_del = #{isDel,jdbcType=BIT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

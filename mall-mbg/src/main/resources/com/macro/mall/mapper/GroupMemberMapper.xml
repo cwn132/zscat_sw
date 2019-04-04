@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.macro.mall.sms.mapper.GroupMemberMapper">
+
+	<select id="get" resultType="com.macro.mall.sms.model.SmsGroupMember">
+		select `id`,`group_id` groupId,`member_id` memberId,`main_id` mainId,name,`create_time` createTime,goods_id goodsId from sms_group_member where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.macro.mall.sms.model.SmsGroupMember">
+		select  `id`,`group_id` groupId,`member_id` memberId,`main_id` mainId,name,`create_time` createTime,goods_id goodsId
+		from sms_group_member
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="groupId != null and groupId != ''"> and group_id = #{groupId} </if>
+		  		  <if test="memberId != null and memberId != ''"> and member_id = #{memberId} </if>
+			      <if test="mainId != null and mainId != ''"> and main_id = #{mainId} </if>
+			<if test="goodsId != null and goodsId != ''"> and goods_id = #{goodsId} </if>
+		  		  <if test="createTime != null and createTime != ''"> and create_time = #{createTime} </if>
+		  		</where>
+
+	</select>
+
+	 
+	<insert id="save" parameterType="com.macro.mall.sms.model.SmsGroupMember" useGeneratedKeys="true" keyProperty="id">
+		insert into sms_group_member
+		(
+			`group_id`, 
+			`member_id`, 
+			`create_time`
+			,`main_id`,name,goods_id
+		)
+		values
+		(
+			#{groupId}, 
+			#{memberId}, 
+			now(),
+			#{mainId},
+			#{name},
+			#{goodsId}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.macro.mall.sms.model.SmsGroupMember">
+		update sms_group_member 
+		<set>
+			<if test="groupId != null">`group_id` = #{groupId}, </if>
+			<if test="memberId != null">`member_id` = #{memberId}, </if>
+			<if test="createTime != null">`create_time` = #{createTime}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from sms_group_member where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from sms_group_member where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

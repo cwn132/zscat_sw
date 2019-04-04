@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.macro.mall.sms.mapper.GroupMapper">
+
+	<select id="get" resultType="com.macro.mall.sms.model.SmsGroup">
+		select `id`,`goods_id` goodsId,`goods_name` goodsName,`origin_price` originPrice,`group_price` groupPrice,
+		`start_time` startTime,`end_time` endTime,`hours`,`peoples`,`status`,`create_time` createTime,
+		`max_people` maxPeople,`limit_goods` limitGoods from sms_group where id = #{value}
+	</select>
+	<select id="getByGoodsId" resultType="com.macro.mall.sms.model.SmsGroup">
+		select `id`,`goods_id` goodsId,`goods_name` goodsName,`origin_price` originPrice,`group_price` groupPrice,
+		`start_time` startTime,`end_time` endTime,`hours`,`peoples`,`status`,`create_time` createTime,
+		`max_people` maxPeople,`limit_goods` limitGoods  from sms_group  where goods_id = #{goodsId} order by create_time desc limit 1
+	</select>
+	<select id="list" resultType="com.macro.mall.sms.model.SmsGroup">
+		select `id`,`goods_id` goodsId,`goods_name` goodsName,`origin_price` originPrice,`group_price` groupPrice,
+		`start_time` startTime,`end_time` endTime,`hours`,`peoples`,`status`,`create_time` createTime,
+		`max_people` maxPeople,`limit_goods` limitGoods from sms_group
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="goodsId != null and goodsId != ''"> and goods_id = #{goodsId} </if>
+		  		  <if test="goodsName != null and goodsName != ''"> and goods_name = #{goodsName} </if>
+		  		  <if test="originPrice != null and originPrice != ''"> and origin_price = #{originPrice} </if>
+		  		  <if test="groupPrice != null and groupPrice != ''"> and group_price = #{groupPrice} </if>
+		  		  <if test="startTime != null and startTime != ''"> and start_time = #{startTime} </if>
+		  		  <if test="endTime != null and endTime != ''"> and end_time = #{endTime} </if>
+		  		  <if test="hours != null and hours != ''"> and hours = #{hours} </if>
+		  		  <if test="peoples != null and peoples != ''"> and peoples = #{peoples} </if>
+		  		  <if test="status != null and status != ''"> and status = #{status} </if>
+		  		  <if test="createTime != null and createTime != ''"> and create_time = #{createTime} </if>
+		  		  <if test="maxPeople != null and maxPeople != ''"> and max_people = #{maxPeople} </if>
+		  		  <if test="limitGoods != null and limitGoods != ''"> and limit_goods = #{limitGoods} </if>
+		  		</where>
+
+	</select>
+
+	 
+	<insert id="save" parameterType="com.macro.mall.sms.model.SmsGroup" useGeneratedKeys="true" keyProperty="id">
+		insert into sms_group
+		(
+			`goods_id`, 
+			`goods_name`, 
+			`origin_price`, 
+			`group_price`, 
+			`start_time`, 
+			`end_time`, 
+			`hours`, 
+			`peoples`, 
+			`status`, 
+			`create_time`, 
+			`max_people`, 
+			`limit_goods`
+		)
+		values
+		(
+			#{goodsId}, 
+			#{goodsName}, 
+			#{originPrice}, 
+			#{groupPrice}, 
+			#{startTime}, 
+			#{endTime}, 
+			#{hours}, 
+			#{peoples}, 
+			#{status}, 
+			#{createTime}, 
+			#{maxPeople}, 
+			#{limitGoods}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.macro.mall.sms.model.SmsGroup">
+		update sms_group 
+		<set>
+			<if test="goodsId != null">`goods_id` = #{goodsId}, </if>
+			<if test="goodsName != null">`goods_name` = #{goodsName}, </if>
+			<if test="originPrice != null">`origin_price` = #{originPrice}, </if>
+			<if test="groupPrice != null">`group_price` = #{groupPrice}, </if>
+			<if test="startTime != null">`start_time` = #{startTime}, </if>
+			<if test="endTime != null">`end_time` = #{endTime}, </if>
+			<if test="hours != null">`hours` = #{hours}, </if>
+			<if test="peoples != null">`peoples` = #{peoples}, </if>
+			<if test="status != null">`status` = #{status}, </if>
+			<if test="createTime != null">`create_time` = #{createTime}, </if>
+			<if test="maxPeople != null">`max_people` = #{maxPeople}, </if>
+			<if test="limitGoods != null">`limit_goods` = #{limitGoods}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from sms_group where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from sms_group where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

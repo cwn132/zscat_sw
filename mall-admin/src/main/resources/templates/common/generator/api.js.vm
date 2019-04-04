@@ -1,0 +1,38 @@
+import request from '@/utils/request'
+export function fetchList(params) {
+    return request({
+        url:'/${module}/${classname}/list',
+        method:'get',
+        params:params
+    })
+}
+export function create${className}(data) {
+    return request({
+        url:'/${module}/${classname}/create',
+        method:'post',
+        data:data
+    })
+}
+
+export function delete${className}(id) {
+    return request({
+        url:'/${module}/${classname}/delete/'+id,
+        method:'get',
+    })
+}
+
+export function get${className}(id) {
+    return request({
+        url:'/${module}/${classname}/'+id,
+        method:'get',
+    })
+}
+
+export function update${className}(id,data) {
+    return request({
+        url:'/${module}/${classname}/update/'+id,
+        method:'post',
+        data:data
+    })
+}
+

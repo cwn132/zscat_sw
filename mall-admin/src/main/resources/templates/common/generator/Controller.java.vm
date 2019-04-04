@@ -1,0 +1,96 @@
+package ${package}.${module}.controller;
+
+import com.macro.mall.dto.CommonResult;
+import ${package}.${module}.model.${Module}${className};
+
+import ${package}.${module}.service.${className}Service;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+import javax.annotation.Resource;
+import java.util.List;
+
+/**
+ * ${comments}
+ *
+ * @author ${author}
+ * @email ${email}
+ * @date ${datetime}
+ */
+@Controller
+@Api(tags = "${className}Controller", description = "${comments}管理")
+@RequestMapping("/${module}/${classname}")
+public class ${className}Controller {
+    @Resource
+    private ${className}Service ${classname}Service;
+
+
+    @ApiOperation(value = "添加${comments}")
+    @RequestMapping(value = "/create", method = RequestMethod.POST)
+    @ResponseBody
+    @PreAuthorize("hasAuthority('${module}:${classname}:create')")
+    public Object create(@Validated @RequestBody ${Module}${className} ${module}${className}, BindingResult result) {
+        CommonResult commonResult;
+        int count = ${classname}Service.create${className}(${module}${className});
+        if (count == 1) {
+            commonResult = new CommonResult().success(count);
+        } else {
+            commonResult = new CommonResult().failed();
+        }
+        return commonResult;
+    }
+
+    @ApiOperation(value = "更新${comments}")
+    @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
+    @ResponseBody
+    @PreAuthorize("hasAuthority('${module}:${classname}:update')")
+    public Object update(@PathVariable("id") Long id,
+                         @Validated @RequestBody ${Module}${className} ${module}${className},
+                         BindingResult result) {
+        CommonResult commonResult;
+        int count = ${classname}Service.update${className}(id, ${module}${className});
+        if (count == 1) {
+            commonResult = new CommonResult().success(count);
+        } else {
+            commonResult = new CommonResult().failed();
+        }
+        return commonResult;
+    }
+
+    @ApiOperation(value = "删除${comments}")
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+    @ResponseBody
+    @PreAuthorize("hasAuthority('${module}:${classname}:delete')")
+    public Object delete(@PathVariable("id") Long id) {
+        int count = ${classname}Service.delete${className}(id);
+        if (count == 1) {
+            return new CommonResult().success(null);
+        } else {
+            return new CommonResult().failed();
+        }
+    }
+
+    @ApiOperation(value = "根据${comments}名称分页获取${comments}列表")
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    @ResponseBody
+    @PreAuthorize("hasAuthority('${module}:${classname}:read')")
+    public Object getList(${Module}${className} ${classname},
+                          @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
+                          @RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize) {
+        return new CommonResult().pageSuccess(${classname}Service.list${className}(${classname}, pageNum, pageSize));
+    }
+
+    @ApiOperation(value = "根据编号查询${comments}信息")
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @ResponseBody
+    @PreAuthorize("hasAuthority('${module}:${classname}:read')")
+    public Object getItem(@PathVariable("id") Long id) {
+        return new CommonResult().success(${classname}Service.get${className}(id));
+    }
+
+}

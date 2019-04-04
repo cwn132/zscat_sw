@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.macro.mall.mapper.ExpressCompanyDao" >
+  <resultMap id="BaseResultMap" type="com.macro.mall.model.ExpressCompany" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="EXPRESS_CORP_ID" property="expressCorpId" jdbcType="VARCHAR" />
+    <result column="EXPRESS_CORP_NAME" property="expressCorpName" jdbcType="VARCHAR" />
+    <result column="STATUS" property="status" jdbcType="TINYINT" />
+    <result column="LOGO_URL" property="logoUrl" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <sql id="Base_Column_List" >
+    ID, EXPRESS_CORP_ID, EXPRESS_CORP_NAME, STATUS, LOGO_URL
+  </sql>
+  
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from TB_EXPRESS_COMPANY
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  
+  <select id="selectByCorpName"	resultMap="BaseResultMap">
+  	select  
+  	<include refid="Base_Column_List" />
+  	from  TB_EXPRESS_COMPANY		
+  	where EXPRESS_CORP_NAME like CONCAT('%',#{expressCorpName},'%')
+  </select>
+  
+  <select id="queryList" resultMap="BaseResultMap">
+  	select  
+  	<include refid="Base_Column_List" /> from TB_EXPRESS_COMPANY
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from TB_EXPRESS_COMPANY
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  
+  <insert id="insert" parameterType="com.macro.mall.model.ExpressCompany" >
+    insert into TB_EXPRESS_COMPANY (ID, EXPRESS_CORP_ID, EXPRESS_CORP_NAME, 
+      STATUS, LOGO_URL)
+    values (#{id,jdbcType=INTEGER}, #{expressCorpId,jdbcType=VARCHAR}, #{expressCorpName,jdbcType=VARCHAR}, 
+      #{status,jdbcType=TINYINT}, #{logoUrl,jdbcType=VARCHAR})
+  </insert>
+  
+  <update id="updateByPrimaryKey" parameterType="com.macro.mall.model.ExpressCompany" >
+    update TB_EXPRESS_COMPANY
+    set EXPRESS_CORP_ID = #{expressCorpId,jdbcType=VARCHAR},
+      EXPRESS_CORP_NAME = #{expressCorpName,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=TINYINT},
+      LOGO_URL = #{logoUrl,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <select id="selectByExpressCorpId" parameterType="java.lang.String" resultMap="BaseResultMap">
+  	select 
+    <include refid="Base_Column_List" />
+    from TB_EXPRESS_COMPANY
+    where EXPRESS_CORP_ID = #{expressCorpId}
+  </select>
+</mapper>

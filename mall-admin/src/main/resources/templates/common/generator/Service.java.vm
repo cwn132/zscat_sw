@@ -1,0 +1,31 @@
+package ${package}.${module}.service;
+
+import ${package}.${module}.model.${Module}${className};
+
+
+import java.util.List;
+
+/**
+ * ${comments}
+ *
+ * @author ${author}
+ * @email ${email}
+ * @date ${datetime}
+ */
+public interface ${className}Service {
+
+
+    int create${className}(${Module}${className} ${classname});
+    
+    int update${className}(Long id, ${Module}${className} ${classname});
+
+    int delete${className}(Long id);
+
+
+
+    List<${Module}${className}> list${className}(${Module}${className} ${classname}, int pageNum, int pageSize);
+
+    ${Module}${className} get${className}(Long id);
+
+   
+}
