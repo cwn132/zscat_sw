@@ -1,238 +1,167 @@
-# mall
+# mallcloud-platform
 
-## 说明
+[![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg)]
+(https://www.apache.org/licenses/LICENSE-2.0.html)<a href='https://gitee.com/catshen/mallcloud-platform'><img src='https://gitee.com/catshen/mallcloud-platform/widgets/widget_4.svg' alt='Fork me on Gitee'></img></a><a href='https://gitee.com/catshen/mallcloud-platform/stargazers'><img src='https://gitee.com/catshen/mallcloud-platform/badge/star.svg?theme=dark' alt='star'></img></a>
 
-> 基于SpringBoot+MyBatis的电商系统，包括前台商城系统及后台管理系统。
+## 如果您觉得有帮助，请点右上角 "Star" 支持一下谢谢
 
-> 如果该项目对您有帮助，您可以点右上角 "Star" 支持一下 谢谢！
+[TOC]
 
-> 或者您可以 "follow" 一下，该项目将持续更新，不断完善功能。
+## 1. 项目介绍
 
-> 项目交流人QQ：[951449465]
+* **技术交流群** [195405248]
+* **详细在线文档** [点击查看](https://github.com/shenzhuan/mallcloud-platform/wiki/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2)
+* **演示地址**
+  * url： [http://www.yjlive.cn:8090/#/login](http://www.yjlive.cn:8090/#/login)
+  * 账号密码：admin/admin
+  * 应用监控账号密码：admin/admin
+  * 配置中心账号密码：nacos/nacos
+  * APM监控账号密码：admin/admin
+  * Grafana账号：mall/mall
+  * txlcn事务管理器密码：admin
+  * 任务管理账号密码：admin/123456
+* **演示环境有全方位的监控示例：日志系统 + APM系统 + GPE系统**
 
-> 如有问题或者好的建议可以在 Issues 中提。
+* Gitee地址：https://gitee.com/catshen/mallcloud-platform
+* Github地址：https://github.com/shenzhuan/mallcloud
 
+* 前后端分离的企业级微服务架构
+* 基于`Spring Boot 2.0.X`、`Spring Cloud Finchley`和`Spring Cloud Alibaba`
+* 深度定制`Spring Security`真正实现了基于`RBAC`、`jwt`和`oauth2`的无状态统一权限认证的解决方案
+* 提供应用管理，方便第三方系统接入
+* 引入组件化的思想实现高内聚低耦合，项目代码简洁注释丰富上手容易
+* 注重代码规范，严格控制包依赖，每个工程基本都是最小依赖
+* 非常适合学习和企业中使用
+> cloud框架和组件来源：https://gitee.com/zlt2000/microservices-platform
+> 业务逻辑来源：https://github.com/shenzhuan/mallplus
 
-## 前言
+&nbsp;
 
-`mall`项目致力于打造一个完整的电商系统，采用现阶段流行技术实现。
+## 2. 项目总体架构图
 
-## 项目介绍
+![](http://processon.com/chart_image/5c7f2ad6e4b02b2ce48d6835.png?_=1554621571250)
 
-`mall`项目是一套电商系统，包括前台商城系统及后台管理系统，小程序，h5，基于SpringBoot+MyBatis实现。
-前台商城系统包含首页门户、商品推荐、商品搜索、商品展示、购物车、订单流程、会员中心、客户服务、帮助中心等模块。
-后台管理系统包含商品管理、订单管理、会员管理、促销管理、运营管理、内容管理、统计报表、财务管理、权限管理、代码生成设置等模块。
+&nbsp;
 
-### 项目演示
+## 3. 功能介绍
 
-> 后台管理系统
+* **统一认证功能**
+  * 支持oauth2的四种模式登录
+  * 支持用户名、密码加图形验证码登录
+  * 支持手机号加密码登录
+  * 支持openId登录
+  * 支持第三方系统单点登录
 
-小程序下载 地址 https://gitee.com/catshen/mall-applet
-后台管理下载地址 https://gitee.com/zscat-platform/mall
-项目演示地址： [http://39.98.190.128/index.html](http://39.98.190.128/index.html)  
-  
-![后台管理系统功能演示.gif](/document/resource/mall-admin.gif)
+* **分布式系统基础支撑**
+  * 服务注册发现、路由与负载均衡
+  * 服务降级与熔断
+  * 服务限流(url/方法级别)
+  * 统一配置中心
+  * 统一日志中心
+  * 统一分布式缓存操作类、cacheManager配置扩展
+  * 分布式锁
+  * 分布式任务调度器
+  * 支持CI/CD持续集成(包括前端和后端)
+  * 分布式高性能Id生成器
+  * 分布式事务
+* **系统监控功能**
+  * 服务调用链监控
+  * 应用拓扑图
+  * 慢服务检测
+  * 服务Metric监控
+  * 应用监控(应用健康、JVM、内存、线程)
+  * 错误日志查询
+  * 慢查询SQL监控
+  * 应用吞吐量监控(qps、rt)
+  * 服务降级、熔断监控
+  * 服务限流监控
+  * 分库分表、读写分离
+* **业务基础功能支撑**
+  * 高性能方法级幂等性支持
+  * RBAC权限管理，实现细粒度控制(方法、url级别)
+  * 快速实现导入、导出功能
+  * 数据库访问层自动实现crud操作
+  * 代码生成器
+  * 基于Hutool的各种便利开发工具
+  * 网关聚合所有服务的Swagger接口文档
+  * 统一跨域处理
+  * 统一异常处理
 
+&nbsp;
 
+## 4. 模块说明
 
-### 组织结构
-
-``` lua
-mall
-├── mall-mbg -- MyBatisGenerator生成的数据库操作代码
-├── mall-admin -- 后台商城管理系统接口
-├── mall-search -- 基于Elasticsearch的商品搜索系统
-├── mall-portal -- 前台商城系统接口
-└── mall-demo -- 框架搭建时的测试代码
-├── 前端项目`mall-admin-web`  地址 请加群下载  
-├── h5前端项目`vue-js-master`地址 请加群下载  
-├── pc前端项目`Mall-Vue-master`地址 请加群下载  
-├── 小前端项目`wechatapp`地址 请加群下载
+```lua
+mallcloud -- 父项目，公共依赖
+│  ├─mall-business -- 业务模块一级工程
+│  │  ├─user-center -- 用户中心[7000]
+│  │  ├─file-center -- 文件中心[5000]
+│  │  ├─member-center -- 会员中心[7001]
+│  │  ├─goods-center -- 商品中心[7002]
+│  │  ├─order-center -- 订单中心[7003]
+│  │  ├─marking-center -- 营销中心[7004]
+│  │─mall-commons -- 通用工具一级工程
+│  │  ├─mall-auth-client-spring-boot-starter -- 封装spring security client端的通用操作逻辑
+│  │  ├─mall-common-spring-boot-starter -- 封装通用操作逻辑
+│  │  ├─mall-db-spring-boot-starter -- 封装数据库通用操作逻辑
+│  │  ├─mall-log-spring-boot-starter -- 封装log通用操作逻辑
+│  │  ├─mall-redis-spring-boot-starter -- 封装Redis通用操作逻辑
+│  │  ├─mall-ribbon-spring-boot-starter -- 封装Ribbon和Feign的通用操作逻辑
+│  │  ├─mall-sentinel-spring-boot-starter -- 封装Sentinel的通用操作逻辑
+│  │  ├─mall-swagger2-spring-boot-starter -- 封装Swagger通用操作逻辑
+│  ├─mall-config -- 配置中心
+│  ├─mall-doc -- 项目文档
+│  ├─mall-gateway -- api网关一级工程
+│  │  ├─zuul-gateway -- netflix-zuul[8080]
+│  ├─mall-job -- 分布式任务调度一级工程
+│  │  ├─job-admin -- 任务管理器[8081]
+│  │  ├─job-core -- 任务调度核心代码
+│  │  ├─job-executor-samples -- 任务执行者executor样例[8082]
+│  ├─mall-monitor -- 监控一级工程
+│  │  ├─sc-admin -- 应用监控[6500]
+│  │  ├─log-center -- 日志中心[6200]
+│  ├─mall-uaa -- spring-security认证中心[8000]
+│  ├─mall-register -- 注册中心Nacos[8848]
+│  ├─mall-web -- 前端一级工程
+│  │  ├─back-web -- 后台前端[8066]
+│  ├─mall-transaction -- 事务一级工程
+│  │  ├─txlcn-tm -- tx-lcn事务管理器[7970]
+│  ├─mall-demo -- demo一级工程
+│  │  ├─txlcn-demo -- txlcn的demo
+│  │  ├─sharding-jdbc-demo -- sharding-jdbc的demo
 ```
 
-## 目前h5项目已实现功能
-1. 首页数据的展示
-2. 分类页数据的展示
-3. 购物车
-4. 我的
-5. 注册
-6. 登录
-7. 商品详情页
-8. 商品搜索
-##h5项目效果图
+&nbsp;
 
+## 5. 截图（点击可大图预览）
 
-![](https://images.gitee.com/uploads/images/2019/0217/112713_5f032a4c_134431.png)
-
-![](https://images.gitee.com/uploads/images/2019/0217/112713_f4cb24ab_134431.png)
-
-![](https://images.gitee.com/uploads/images/2019/0217/112713_a17c828d_134431.png)
-
-![](https://images.gitee.com/uploads/images/2019/0217/112713_a7afcc52_134431.png)
-
-![](https://images.gitee.com/uploads/images/2019/0217/112713_2d82d3c8_134431.png)
-
-![](https://images.gitee.com/uploads/images/2019/0217/112714_62baf63a_134431.png)
-
-![](https://images.gitee.com/uploads/images/2019/0217/112715_c571472d_134431.png)
-
-
-## 目前小程序项目已实现功能
-1. 首页数据的展示
-2. 分类页数据的展示
-3. 购物车
-4. 我的
-5. 注册
-6. 登录
-7. 商品详情页
-8. 商品搜索
-9.下单
-10.用户详情
-
-
-## 目前pc项目已实现功能
-1. 首页数据的展示
-2. 分类页数据的展示
-3. 购物车
-4. 我的
-5. 注册
-6. 登录
-7. 商品详情页
-8. 商品搜索
-9.下单
-10.用户详情
-### 技术选型
-
-#### 后端技术
-
-技术 | 说明 | 官网
-----|----|----
-Spring Boot | 容器+MVC框架 | [https://spring.io/projects/spring-boot](https://spring.io/projects/spring-boot)
-Spring Security | 认证和授权框架 | [https://spring.io/projects/spring-security](https://spring.io/projects/spring-security)
-MyBatis | ORM框架  | [http://www.mybatis.org/mybatis-3/zh/index.html](http://www.mybatis.org/mybatis-3/zh/index.html)
-MyBatisGenerator | 数据层代码生成 | [http://www.mybatis.org/generator/index.html](http://www.mybatis.org/generator/index.html)
-PageHelper | MyBatis物理分页插件 | [http://git.oschina.net/free/Mybatis_PageHelper](http://git.oschina.net/free/Mybatis_PageHelper)
-Swagger-UI | 文档生产工具 | [https://github.com/swagger-api/swagger-ui](https://github.com/swagger-api/swagger-ui)
-Hibernator-Validator | 验证框架 | [http://hibernate.org/validator/](http://hibernate.org/validator/)
-Elasticsearch | 搜索引擎 | [https://github.com/elastic/elasticsearch](https://github.com/elastic/elasticsearch)
-RabbitMq | 消息队列 | [https://www.rabbitmq.com/](https://www.rabbitmq.com/)
-Redis | 分布式缓存 | [https://redis.io/](https://redis.io/)
-MongoDb | NoSql数据库 | [https://www.mongodb.com/](https://www.mongodb.com/)
-Docker | 应用容器引擎 | [https://www.docker.com/](https://www.docker.com/)
-Druid | 数据库连接池 | [https://github.com/alibaba/druid](https://github.com/alibaba/druid)
-OSS | 对象存储 | [https://github.com/aliyun/aliyun-oss-java-sdk](https://github.com/aliyun/aliyun-oss-java-sdk)
-JWT | JWT登录支持 | [https://github.com/jwtk/jjwt](https://github.com/jwtk/jjwt)
-LogStash | 日志收集 | [https://github.com/logstash/logstash-logback-encoder](https://github.com/logstash/logstash-logback-encoder)
-Lombok | 简化对象封装工具 | [https://github.com/rzwitserloot/lombok](https://github.com/rzwitserloot/lombok)
-
-#### 前端技术
-
-技术 | 说明 | 官网
-----|----|----
-Vue | 前端框架 | [https://vuejs.org/](https://vuejs.org/)
-Vue-router | 路由框架 | [https://router.vuejs.org/](https://router.vuejs.org/)
-Vuex | 全局状态管理框架 | [https://vuex.vuejs.org/](https://vuex.vuejs.org/)
-Element | 前端UI框架 | [https://element.eleme.io/](https://element.eleme.io/)
-Axios | 前端HTTP框架 | [https://github.com/axios/axios](https://github.com/axios/axios)
-v-charts | 基于Echarts的图表框架 | [https://v-charts.js.org/](https://v-charts.js.org/)
-Js-cookie | cookie管理工具 | [https://github.com/js-cookie/js-cookie](https://github.com/js-cookie/js-cookie)
-nprogress | 进度条控件 | [https://github.com/rstacruz/nprogress](https://github.com/rstacruz/nprogress)
-
-#### 架构图
-
-##### 系统架构图
-
-![系统架构图](document/resource/mall_system_arch.png)
-
-##### 业务架构图
-
-![系统架构图](document/resource/mall_business_arch.png)
-
-#### 模块介绍
-
-##### 后台管理系统 `mall-admin`
-
-- 商品管理：[功能结构图-商品.jpg](document/resource/mind_product.jpg)
-- 订单管理：[功能结构图-订单.jpg](document/resource/mind_order.jpg)
-- 促销管理：[功能结构图-促销.jpg](document/resource/mind_sale.jpg)
-- 内容管理：[功能结构图-内容.jpg](document/resource/mind_content.jpg)
-- 用户管理：[功能结构图-用户.jpg](document/resource/mind_member.jpg)
-
-##### 前台商城系统 `mall-portal`
-
-[功能结构图-前台.jpg](document/resource/mind_portal.jpg)
-
-#### 开发进度
-
-![项目开发进度图](document/resource/mall_dev_flow.png)
-
-## 环境搭建
-
-### 开发工具
-
-工具 | 说明 | 官网
-----|----|----
-IDEA | 开发IDE | https://www.jetbrains.com/idea/download
-RedisDesktop | redis客户端连接工具 | https://redisdesktop.com/download
-Robomongo | mongo客户端连接工具 | https://robomongo.org/download
-SwitchHosts| 本地host管理 | https://oldj.github.io/SwitchHosts/
-X-shell | Linux远程连接工具 | http://www.netsarang.com/download/software.html
-Navicat | 数据库连接工具 | http://www.formysql.com/xiazai.html
-PowerDesigner | 数据库设计工具 | http://powerdesigner.de/
-Axure | 原型设计工具 | https://www.axure.com/
-MindMaster | 思维导图设计工具 | http://www.edrawsoft.cn/mindmaster
-ScreenToGif | gif录制工具 | https://www.screentogif.com/
-ProcessOn | 流程图绘制工具 | https://www.processon.com/
-PicPick | 屏幕取色工具 | https://picpick.app/zh/
-
-### 开发环境
-
-工具 | 版本号 | 下载
-----|----|----
-JDK | 1.8 | https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
-Mysql | 5.7 | https://www.mysql.com/
-Redis | 3.2 | https://redis.io/download
-Elasticsearch | 2.4.6 | https://www.elastic.co/downloads
-MongoDb | 3.2 | https://www.mongodb.com/download-center
-RabbitMq | 5.25 | http://www.rabbitmq.com/download.html
-nginx | 1.10 | http://nginx.org/en/download.html
-
-### 搭建步骤
-
-> 本地环境搭建
-
-- 本地安装开发环境中的所有工具并启动，具体参考
-- 克隆源代码到本地，使用IDEA或Eclipse打开，并完成编译;
-- 在mysql中新建mall数据库，导入document/sql下的mall.sql文件；
-- 启动mall-admin项目：直接运行com.macro.mall.MallAdminApplication的main方法即可，
-  接口文档地址：http://localhost:8080/swagger-ui.html;
-- 启动mall-search项目：直接运行com.macro.mall.search.MallSearchApplication的main方法即可，
-  接口文档地址：http://localhost:8081/swagger-ui.html;
-- 启动mall-portal项目：直接运行com.macro.mall.portal.MallPortalApplication的main方法即可，
-  接口文档地址：http://localhost:8085/swagger-ui.html;
-
-
-
-## 项目相关文档
-
-
-
-## 参考资料
-
-- [Spring实战（第4版）](https://book.douban.com/subject/26767354/)
-- [Spring Boot实战](https://book.douban.com/subject/26857423/)
-- [Spring Cloud微服务实战](https://book.douban.com/subject/27025912/)
-- [Spring Cloud与Docker微服务架构实战](https://book.douban.com/subject/27028228/)
-- [Spring Data实战](https://book.douban.com/subject/25975186/)
-- [MyBatis从入门到精通](https://book.douban.com/subject/27074809/)
-- [深入浅出MySQL](https://book.douban.com/subject/25817684/)
-- [循序渐进Linux（第2版）](https://book.douban.com/subject/26758194/)
-- [Elasticsearch 技术解析与实战](https://book.douban.com/subject/26967826/)
-- [MongoDB实战(第二版)](https://book.douban.com/subject/27061123/)
-- [Kubernetes权威指南](https://book.douban.com/subject/26902153/)
-
-## 许可证
-
-[MIT](https://github.com/macrozheng/mall/blob/master/LICENSE)
-
-Copyright (c) 2018-2019 macrozheng
+<table>
+	<tr>
+        <td><img src="https://gitee.com/mall2000/images/raw/master/server_metrics.png"/></td>
+        <td><img src="https://gitee.com/mall2000/images/raw/master/application_metrics.png"/></td>
+    </tr>
+	<tr>
+        <td><img src="https://gitee.com/mall2000/images/raw/master/持续集成2.png"/></td>
+        <td><img src="https://gitee.com/mall2000/images/raw/master/sonar结果.png"/></td>
+    </tr>
+    <tr>
+        <td><img src="https://gitee.com/mall2000/images/raw/master/skywalking首页.png"/></td>
+        <td><img src="https://gitee.com/mall2000/images/raw/master/skywalking应用拓扑图.png"/></td>
+    </tr>
+    <tr>
+        <td><img src="https://gitee.com/mall2000/images/raw/master/elk.png"/></td>
+        <td><img src="https://gitee.com/mall2000/images/raw/master/任务中心.png"/></td>
+    </tr>
+    <tr>
+        <td><img src="https://gitee.com/mall2000/images/raw/master/日志中心02.png"/></td>
+        <td><img src="https://gitee.com/mall2000/images/raw/master/慢查询sql.png"/></td>
+    </tr>
+    <tr>
+        <td><img src="https://gitee.com/mall2000/images/raw/master/应用监控01.png"/></td>
+        <td><img src="https://gitee.com/mall2000/images/raw/master/应用监控02.png"/></td>
+    </tr>
+    <tr>
+        <td><img src="https://gitee.com/mall2000/images/raw/master/nacos-discovery.png"/></td>
+        <td><img src="https://gitee.com/mall2000/images/raw/master/应用吞吐量监控.png"/></td>
+    </tr>
+</table>
