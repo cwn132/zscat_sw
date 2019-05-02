@@ -2,32 +2,47 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/sw-blog/blog-api/blog-api.iml" filepath="$PROJECT_DIR$/sw-blog/blog-api/blog-api.iml" />
-      <module fileurl="file://$PROJECT_DIR$/sw-blog/blog-service/blog-service.iml" filepath="$PROJECT_DIR$/sw-blog/blog-service/blog-service.iml" />
-      <module fileurl="file://$PROJECT_DIR$/sw-blog/blog-web/blog-web.iml" filepath="$PROJECT_DIR$/sw-blog/blog-web/blog-web.iml" />
-      <module fileurl="file://$PROJECT_DIR$/sw-cms/cms-api/cms-api.iml" filepath="$PROJECT_DIR$/sw-cms/cms-api/cms-api.iml" />
-      <module fileurl="file://$PROJECT_DIR$/sw-cms/cms-service/cms-service.iml" filepath="$PROJECT_DIR$/sw-cms/cms-service/cms-service.iml" />
-      <module fileurl="file://$PROJECT_DIR$/sw-cms/cms-web/cms-web.iml" filepath="$PROJECT_DIR$/sw-cms/cms-web/cms-web.iml" />
-      <module fileurl="file://$PROJECT_DIR$/sw-demo/demo-api/demo-api.iml" filepath="$PROJECT_DIR$/sw-demo/demo-api/demo-api.iml" />
-      <module fileurl="file://$PROJECT_DIR$/sw-demo/demo-service/demo-service.iml" filepath="$PROJECT_DIR$/sw-demo/demo-service/demo-service.iml" />
-      <module fileurl="file://$PROJECT_DIR$/sw-demo/demo-web/demo-web.iml" filepath="$PROJECT_DIR$/sw-demo/demo-web/demo-web.iml" />
-      <module fileurl="file://$PROJECT_DIR$/sw-search/search-api/search-api.iml" filepath="$PROJECT_DIR$/sw-search/search-api/search-api.iml" />
-      <module fileurl="file://$PROJECT_DIR$/sw-search/search-elasticsearch/search-elasticsearch.iml" filepath="$PROJECT_DIR$/sw-search/search-elasticsearch/search-elasticsearch.iml" />
-      <module fileurl="file://$PROJECT_DIR$/sw-search/search-service/search-service.iml" filepath="$PROJECT_DIR$/sw-search/search-service/search-service.iml" />
-      <module fileurl="file://$PROJECT_DIR$/sw-search/search-web/search-web.iml" filepath="$PROJECT_DIR$/sw-search/search-web/search-web.iml" />
-      <module fileurl="file://$PROJECT_DIR$/sw-shop/shop-api/shop-api.iml" filepath="$PROJECT_DIR$/sw-shop/shop-api/shop-api.iml" />
-      <module fileurl="file://$PROJECT_DIR$/sw-shop/shop-h5/shop-h5.iml" filepath="$PROJECT_DIR$/sw-shop/shop-h5/shop-h5.iml" />
-      <module fileurl="file://$PROJECT_DIR$/sw-shop/shop-service/shop-service.iml" filepath="$PROJECT_DIR$/sw-shop/shop-service/shop-service.iml" />
-      <module fileurl="file://$PROJECT_DIR$/sw-shop/shop-web/shop-web.iml" filepath="$PROJECT_DIR$/sw-shop/shop-web/shop-web.iml" />
-      <module fileurl="file://$PROJECT_DIR$/sw-blog/sw-blog.iml" filepath="$PROJECT_DIR$/sw-blog/sw-blog.iml" />
-      <module fileurl="file://$PROJECT_DIR$/sw-cms/sw-cms.iml" filepath="$PROJECT_DIR$/sw-cms/sw-cms.iml" />
-      <module fileurl="file://$PROJECT_DIR$/sw-common/sw-common.iml" filepath="$PROJECT_DIR$/sw-common/sw-common.iml" />
-      <module fileurl="file://$PROJECT_DIR$/sw-demo/sw-demo.iml" filepath="$PROJECT_DIR$/sw-demo/sw-demo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/sw-portl/sw-portl.iml" filepath="$PROJECT_DIR$/sw-portl/sw-portl.iml" />
-      <module fileurl="file://$PROJECT_DIR$/sw-search/sw-search.iml" filepath="$PROJECT_DIR$/sw-search/sw-search.iml" />
-      <module fileurl="file://$PROJECT_DIR$/sw-shop/sw-shop.iml" filepath="$PROJECT_DIR$/sw-shop/sw-shop.iml" />
-      <module fileurl="file://$PROJECT_DIR$/sw_manager/sw_manager.iml" filepath="$PROJECT_DIR$/sw_manager/sw_manager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall-business/cms-center/cms-center.iml" filepath="$PROJECT_DIR$/mall-business/cms-center/cms-center.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall-business/code-generator/code-generator.iml" filepath="$PROJECT_DIR$/mall-business/code-generator/code-generator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall-business/file-center/file-center.iml" filepath="$PROJECT_DIR$/mall-business/file-center/file-center.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall-business/goods-center/goods-center.iml" filepath="$PROJECT_DIR$/mall-business/goods-center/goods-center.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall-job/job-admin/job-admin.iml" filepath="$PROJECT_DIR$/mall-job/job-admin/job-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall-job/job-core/job-core.iml" filepath="$PROJECT_DIR$/mall-job/job-core/job-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall-job/job-executor-samples/job-executor-samples.iml" filepath="$PROJECT_DIR$/mall-job/job-executor-samples/job-executor-samples.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall-monitor/log-center/log-center.iml" filepath="$PROJECT_DIR$/mall-monitor/log-center/log-center.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall.iml" filepath="$PROJECT_DIR$/mall.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall-commons/mall-auth-client-spring-boot-starter/mall-auth-client-spring-boot-starter.iml" filepath="$PROJECT_DIR$/mall-commons/mall-auth-client-spring-boot-starter/mall-auth-client-spring-boot-starter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall-business/mall-business.iml" filepath="$PROJECT_DIR$/mall-business/mall-business.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall-commons/mall-common-spring-boot-starter/mall-common-spring-boot-starter.iml" filepath="$PROJECT_DIR$/mall-commons/mall-common-spring-boot-starter/mall-common-spring-boot-starter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall-commons/mall-commons.iml" filepath="$PROJECT_DIR$/mall-commons/mall-commons.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall-config/mall-config.iml" filepath="$PROJECT_DIR$/mall-config/mall-config.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall-commons/mall-db-spring-boot-starter/mall-db-spring-boot-starter.iml" filepath="$PROJECT_DIR$/mall-commons/mall-db-spring-boot-starter/mall-db-spring-boot-starter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall-demo/mall-demo.iml" filepath="$PROJECT_DIR$/mall-demo/mall-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall-gateway/mall-gateway.iml" filepath="$PROJECT_DIR$/mall-gateway/mall-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall-job/mall-job.iml" filepath="$PROJECT_DIR$/mall-job/mall-job.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall-commons/mall-log-spring-boot-starter/mall-log-spring-boot-starter.iml" filepath="$PROJECT_DIR$/mall-commons/mall-log-spring-boot-starter/mall-log-spring-boot-starter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall-monitor/mall-monitor.iml" filepath="$PROJECT_DIR$/mall-monitor/mall-monitor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall-commons/mall-redis-spring-boot-starter/mall-redis-spring-boot-starter.iml" filepath="$PROJECT_DIR$/mall-commons/mall-redis-spring-boot-starter/mall-redis-spring-boot-starter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall-commons/mall-ribbon-spring-boot-starter/mall-ribbon-spring-boot-starter.iml" filepath="$PROJECT_DIR$/mall-commons/mall-ribbon-spring-boot-starter/mall-ribbon-spring-boot-starter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall-commons/mall-sentinel-spring-boot-starter/mall-sentinel-spring-boot-starter.iml" filepath="$PROJECT_DIR$/mall-commons/mall-sentinel-spring-boot-starter/mall-sentinel-spring-boot-starter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall-commons/mall-swagger2-spring-boot-starter/mall-swagger2-spring-boot-starter.iml" filepath="$PROJECT_DIR$/mall-commons/mall-swagger2-spring-boot-starter/mall-swagger2-spring-boot-starter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall-transaction/mall-transaction.iml" filepath="$PROJECT_DIR$/mall-transaction/mall-transaction.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall-uaa/mall-uaa.iml" filepath="$PROJECT_DIR$/mall-uaa/mall-uaa.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mallcloud.iml" filepath="$PROJECT_DIR$/mallcloud.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall-business/marking-center/marking-center.iml" filepath="$PROJECT_DIR$/mall-business/marking-center/marking-center.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall-business/member-center/member-center.iml" filepath="$PROJECT_DIR$/mall-business/member-center/member-center.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall-business/order-center/order-center.iml" filepath="$PROJECT_DIR$/mall-business/order-center/order-center.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall-monitor/sc-admin/sc-admin.iml" filepath="$PROJECT_DIR$/mall-monitor/sc-admin/sc-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall-demo/sharding-jdbc-demo/sharding-jdbc-demo.iml" filepath="$PROJECT_DIR$/mall-demo/sharding-jdbc-demo/sharding-jdbc-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall-demo/txlcn-demo/txlcn-demo.iml" filepath="$PROJECT_DIR$/mall-demo/txlcn-demo/txlcn-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall-demo/txlcn-demo/txlcn-demo-common/txlcn-demo-common.iml" filepath="$PROJECT_DIR$/mall-demo/txlcn-demo/txlcn-demo-common/txlcn-demo-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall-demo/txlcn-demo/txlcn-demo-spring-service-a/txlcn-demo-spring-service-a.iml" filepath="$PROJECT_DIR$/mall-demo/txlcn-demo/txlcn-demo-spring-service-a/txlcn-demo-spring-service-a.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall-demo/txlcn-demo/txlcn-demo-spring-service-b/txlcn-demo-spring-service-b.iml" filepath="$PROJECT_DIR$/mall-demo/txlcn-demo/txlcn-demo-spring-service-b/txlcn-demo-spring-service-b.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall-demo/txlcn-demo/txlcn-demo-spring-service-c/txlcn-demo-spring-service-c.iml" filepath="$PROJECT_DIR$/mall-demo/txlcn-demo/txlcn-demo-spring-service-c/txlcn-demo-spring-service-c.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall-transaction/txlcn-tm/txlcn-tm.iml" filepath="$PROJECT_DIR$/mall-transaction/txlcn-tm/txlcn-tm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall-business/user-center/user-center.iml" filepath="$PROJECT_DIR$/mall-business/user-center/user-center.iml" />
       <module fileurl="file://$PROJECT_DIR$/zscat-me.iml" filepath="$PROJECT_DIR$/zscat-me.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall-gateway/zuul-gateway/zuul-gateway.iml" filepath="$PROJECT_DIR$/mall-gateway/zuul-gateway/zuul-gateway.iml" />
     </modules>
   </component>
 </project>
